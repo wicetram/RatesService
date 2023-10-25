@@ -1,0 +1,22 @@
+﻿@model List<double>
+<table>
+    <thead>
+        <tr>
+            <td>Kur Değer</td>
+            <td>Tarih</td>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            var date = 0;
+            foreach (var item in Model)
+            {
+                date--;
+                <tr>
+                    <td>@item.ToString("#.##")</td>
+                    <td>@DateTime.Today.AddDays(date).ToString("dd.MM.yyyy")</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>  

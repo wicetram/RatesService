@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@model List<string>
+
+<main>
+    @using (Html.BeginForm("GetRates", "Home", FormMethod.Post, null))
+    {
+        <div>
+            <label>Para birimi seçiniz: </label>
+        </div>
+        <div>
+            <select name="">
+                @foreach (var currencies in Model)
+                {
+                    <option>@currencies</option>
+                }
+            </select>
+        </div>
+        <div>
+            <input type="submit" value="Kurları getir" />
+        </div>
+        <div>
+            @Html.Partial("RatesList", ViewBag.Rates as List<double>)
+        </div>
+    }
+</main>
